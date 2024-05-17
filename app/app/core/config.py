@@ -1,3 +1,5 @@
+import os
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -10,12 +12,15 @@ class Settings(BaseSettings):
 
     # JWT settings
     SECRET_KEY: str
-    ALGORITHM: str
+    ENCRYPTION_ALGORITHM: str
     ACCESS_TOKEN_EXPIRE_MINUTES: int
 
-    model_config = SettingsConfigDict(env_file=".env")
+    model_config = SettingsConfigDict(env_file=os.getenv("ENV_FILE", ".env"))
 
+    @property
+    def DATABASE_URL(self):
+        return f"postgresql://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}@{self.POSTGRES_SERVER}/{self.POSTGRES_DB}"
 
-# Instantiate the Settings class to load configuration from environment variables
+# Instantiate the Settings class to load configuration from environment
+# variables
 settings = Settings()
-

@@ -1,9 +1,10 @@
 from fastapi import FastAPI
-from app.app.api.endpoints import auth, salary,user
-from app.app.db.sessions import engine
 
+from app.app.api.endpoints import auth, salary, user
 # Create tables in the database if they don't exist
 from app.app.api.models import user as UserModel
+from app.app.db.sessions import engine
+
 UserModel.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
