@@ -1,5 +1,3 @@
-import pytest
-
 # Test successful user creation
 def test_create_user_success(client, test_db):
     response = client.post(
@@ -14,6 +12,7 @@ def test_create_user_success(client, test_db):
     assert response.status_code == 200
     data = response.json()
     assert data["username"] == "testuser"
+
 
 # Test creating user with existing username
 def test_create_user_existing_username(client, test_db):

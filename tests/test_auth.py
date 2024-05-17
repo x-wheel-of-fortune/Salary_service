@@ -1,6 +1,3 @@
-import pytest
-
-
 # Test successful login
 def test_login_success(client, test_db):
     # Create a user first

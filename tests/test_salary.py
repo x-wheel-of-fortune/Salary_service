@@ -2,8 +2,6 @@ import base64
 import json
 import time
 
-import pytest
-
 
 # Test successful retrieval of user salary
 def test_get_user_salary_success(client, test_db):
