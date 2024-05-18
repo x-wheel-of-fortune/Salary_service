@@ -9,7 +9,7 @@ services:
       - "8000:8000"
     environment:
       - ENVIRONMENT=production
-      - POSTGRES_SERVER=postgres
+      - POSTGRES_HOST=postgres
     depends_on:
       - postgres
 

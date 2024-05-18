@@ -1,6 +1,6 @@
 # Makefile
 
-.PHONY: help lint build up down test-env-up test-env-down test clean
+.PHONY: help lint build up down test-env-up test-env-down test clean new-migration migrate
 
 help:
 	@echo "Choose a command to run:"
@@ -12,6 +12,8 @@ help:
 	@echo "  test            - Run tests"
 	@echo "  build           - Build the Docker image"
 	@echo "  clean           - Clean up Docker containers and images"
+	@echo "  new-migration   - Generate a new migration"
+	@echo "  migrate	     - Apply migrations to the database"
 
 lint:
 	flake8 app tests
@@ -40,3 +42,8 @@ clean:
 	docker-compose down --rmi all --volumes --remove-orphans
 	docker-compose -f docker-compose.test-db.yml down --rmi all --volumes --remove-orphans
 
+new-migration:
+	poetry run alembic revision --autogenerate -m "New migration"
+
+migrate:
+	poetry run alembic upgrade head
