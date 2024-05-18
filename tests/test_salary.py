@@ -88,5 +88,3 @@ def test_get_user_salary_expired_token(client, test_db):
     )
     assert response.status_code == 401
     assert "Could not validate credentials" in response.text
-
-# Add more tests for other failure scenarios, validation errors, etc.

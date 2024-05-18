@@ -40,7 +40,7 @@ test: test-env-up
 
 clean:
 	docker-compose down --rmi all --volumes --remove-orphans
-	docker-compose -f docker-compose.test-db.yml down --rmi all --volumes --remove-orphans
+	docker-compose -f tests/docker-compose.test-db.yml down --rmi all --volumes --remove-orphans
 
 new-migration:
 	poetry run alembic revision --autogenerate -m "New migration"

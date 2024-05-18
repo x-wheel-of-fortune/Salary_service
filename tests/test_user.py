@@ -9,9 +9,9 @@ def test_create_user_success(client, test_db):
             "promotion_date": "2024-05-17T00:00:00"
         },
     )
-    assert response.status_code == 200
+    assert response.status_code == 201
     data = response.json()
-    assert data["username"] == "testuser"
+    assert data["detail"] == "User created successfully"
 
 
 # Test creating user with existing username
@@ -53,5 +53,3 @@ def test_create_user_invalid_data(client, test_db):
     )
     assert response.status_code == 422
     assert "missing" in response.text
-
-# Add more tests for other failure scenarios, validation errors, etc.

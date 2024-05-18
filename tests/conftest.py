@@ -1,4 +1,5 @@
 import os
+
 import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
@@ -10,9 +11,9 @@ project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 env_file_path = os.path.join(project_root, 'tests/.env')
 os.environ["ENV_FILE"] = env_file_path
 
-from app.main import app
-from app.db.base import Base
-from app.core.config import settings
+from app.main import app  # noqa: E402
+from app.db.base import Base  # noqa: E402
+from app.core.config import settings  # noqa: E402
 
 # Use the test database URL
 SQLALCHEMY_DATABASE_URL = settings.DATABASE_URL

@@ -62,5 +62,3 @@ def test_login_missing_credentials(client, test_db):
     response = client.post("/auth/login")
     assert response.status_code == 422
     assert "missing" in response.text
-
-# Add more tests for other failure scenarios, validation errors, etc.
