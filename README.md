@@ -1,6 +1,6 @@
 # FastAPI User Management and Salary Service
 
-This project is a RESTful API service built with FastAPI for managing user accounts and viewing salary information. It includes authentication mechanisms to ensure that only authorized users can access sensitive salary data.
+This project is a REST API service built with FastAPI for viewing salary information. It includes authentication mechanisms to ensure that only authorized users can access sensitive salary data.
 
 ## Features
 
